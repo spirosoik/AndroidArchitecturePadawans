@@ -1,0 +1,38 @@
+apply plugin: 'java'
+
+//noinspection GroovyUnusedAssignment
+sourceCompatibility = 1.7
+//noinspection GroovyUnusedAssignment
+targetCompatibility = 1.7
+
+configurations {
+  provided
+}
+
+sourceSets {
+  main {
+    compileClasspath += configurations.provided
+  }
+}
+
+dependencies {
+  def dataDependencies = rootProject.ext.dataDependencies
+  def dataTestDependencies = rootProject.ext.dataTestDependencies
+
+  provided dataDependencies.javaxAnnotation
+  provided dataDependencies.daggerCompiler
+  compile dataDependencies.dagger
+  compile dataDependencies.otto
+  compile dataDependencies.retrofit
+  compile dataDependencies.okhttp
+  compile dataDependencies.okhttpUrlConn
+  compile dataDependencies.okio
+
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+
+  //TESTS
+  testCompile dataTestDependencies.junit
+  testCompile dataTestDependencies.assertj
+  testCompile dataTestDependencies.mockito
+  testCompile dataTestDependencies.robolectric
+}

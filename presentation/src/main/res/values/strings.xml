@@ -1,0 +1,4 @@
+<resources>
+  <string name="app_name">AndroidArchitecturePadawans</string>
+  <string name="action_logout">Logout</string>
+</resources>

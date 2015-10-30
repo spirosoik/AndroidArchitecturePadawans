@@ -1,0 +1,95 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+  def globalConfiguration = rootProject.extensions.getByName("ext")
+
+  compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+  buildToolsVersion globalConfiguration.getAt("androidBuildToolsVersion")
+
+  defaultConfig {
+    minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+    targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+
+    applicationId globalConfiguration.getAt("androidApplicationId")
+    versionCode globalConfiguration.getAt("androidVersionCode")
+    versionName globalConfiguration.getAt("androidVersionName")
+    testInstrumentationRunner globalConfiguration.getAt("testInstrumentationRunner")
+    testApplicationId globalConfiguration.getAt("testApplicationId")
+    multiDexEnabled true
+
+    applicationVariants.all { variant ->
+      variant.outputs.each  { output ->
+        output.outputFile = new File(output.outputFile.parent,
+            output.outputFile.name.replace(".apk", "-" + defaultConfig.versionName+"-("+ defaultConfig.versionCode + ").apk"))
+      }
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_7
+    targetCompatibility JavaVersion.VERSION_1_7
+  }
+
+  packagingOptions {
+    exclude 'META-INF/ASL2.0'
+    exclude 'META-INF/services/javax.annotation.processing.Processor'
+    exclude 'LICENSE.txt'
+    exclude 'META-INF/LICENSE'
+    exclude 'META-INF/LICENSE.txt'
+    exclude 'META-INF/NOTICE'
+    exclude 'LICENSE'
+    exclude 'NOTICE'
+    exclude 'asm-license.txt'
+  }
+
+  dexOptions {
+    jumboMode true
+    javaMaxHeapSize "4g"
+  }
+
+  lintOptions {
+    quiet true
+    abortOnError false
+    ignoreWarnings true
+    disable 'InvalidPackage'            //Some libraries have issues with this.
+    disable 'OldTargetApi'              //Lint gives this warning but SDK 20 would be Android L Beta.
+    disable 'IconDensities'             //For testing purpose. This is safe to remove.
+    disable 'IconMissingDensityFolder'  //For testing purpose. This is safe to remove.
+  }
+
+  buildTypes {
+    debug {
+    }
+  }
+}
+
+dependencies {
+  def presentationDependencies = rootProject.ext.presentationDependencies
+  def presentationTestDependencies = rootProject.ext.presentationTestDependencies
+
+  compile project(':data')
+
+  apt presentationDependencies.daggerCompiler
+  compile presentationDependencies.dagger
+  provided presentationDependencies.javaxAnnotation
+  compile presentationDependencies.supportV4
+  compile presentationDependencies.suportAppCompact
+  compile presentationDependencies.supportDesign
+  compile presentationDependencies.playServices
+  compile(presentationDependencies.butterKnife) {
+    exclude module: 'support-v4'
+  }
+  compile presentationDependencies.recyclerView
+  compile presentationDependencies.otto
+  compile presentationDependencies.picasso
+  compile fileTree(dir: 'libs', include: '*.jar')
+
+  testCompile presentationTestDependencies.otto
+  testCompile presentationTestDependencies.robolectric
+  testCompile presentationTestDependencies.junit
+  testCompile presentationTestDependencies.mockito
+  testCompile(presentationTestDependencies.assertj) {
+    exclude module: 'support-v4'
+  }
+}
