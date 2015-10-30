@@ -19,7 +19,7 @@ The data layer doesn't know anything about the presentation layer is completely 
 The data layer can access a Database or a REST API and it will return back 
 to presentation layer business objects (Entities in this case). 
 
-Important note: You must not send back to the presentation layer the Data Object (DTO of retrofit) 
+**Important note:** You must not send back to the presentation layer the Data Object (DTO of retrofit) 
 because you need to have a business object with business rules (Domain layer in MVP architecture), that's why
 we need DataMappers which will convert the DTO to BO.
 
