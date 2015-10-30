@@ -1,6 +1,6 @@
-# AndroidArchitecturePadawans
-This repository shows how to separate layers of an application for newcomers in Android world. 
-After this you will become a Padawan and this means that you have made a great progress.
+# Clean Android Architecture for Padawans
+This repository shows how to separate layers of an application for newcomers in Android world with a simple application based on Foursquare API. 
+After this you will become a Padawan and this means that you have made a great progress to become a JEDI.
 
 ![](https://s3.amazonaws.com/soikonomakis/Padawan.jpg)
 
@@ -22,6 +22,10 @@ to presentation layer business objects (Entities in this case).
 Important note: You must not send back to the presentation layer the Data Object (DTO of retrofit) 
 because you need to have a business object with business rules (Domain layer in MVP architecture), that's why
 we need DataMappers which will convert the DTO to BO.
+
+## Architecture
+* Event-Driven architecture with Otto
+* Dependncy injection with Dagger2
 
 ## Libraries
 * [Retrofit 1.9.0](http://square.github.io/retrofit/)
