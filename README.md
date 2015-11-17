@@ -24,7 +24,7 @@ because you need to have a business object with business rules (Domain layer in 
 we need DataMappers which will convert the DTO to BO.
 
 ## Tools
-* Event-Driven architecture with Otto
+* Event-Driven programming with Otto
 * Dependncy injection with Dagger2
 
 ## Libraries
