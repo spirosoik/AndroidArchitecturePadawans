@@ -7,8 +7,8 @@ allprojects {
 //Controlling Android Properties of all your modules for the main project
 ext {
   androidMinSdkVersion = 14
-  androidTargetSdkVersion = 22
-  androidCompileSdkVersion = 22
+  androidTargetSdkVersion = 23
+  androidCompileSdkVersion = 23
   androidBuildToolsVersion = "23.0.1"
 
   ////Libraries////
@@ -19,11 +19,11 @@ ext {
   ottoVersion = '1.3.8'
 
   //Support
-  supportCompactVersion = '22.2.1'
-  recyclerViewVersion = '22.2.1'
-  playServicesVersion = '7.8.0'
-  supportVersionV4 = '22.2.1'
-  supportDesignVersion = '22.2.0'
+  supportCompactVersion = '23.1.0'
+  recyclerViewVersion = '23.1.0'
+  playServicesVersion = '8.3.0'
+  supportVersionV4 = '23.1.0'
+  supportDesignVersion = '23.1.0'
 
   //Dependency injection
   daggerVersion = '2.0'
@@ -85,7 +85,6 @@ ext {
       androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
       daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVersion}",
       dagger:             "com.google.dagger:dagger:${daggerVersion}",
-      androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
       javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
       //http
       retrofit:           "com.squareup.retrofit:retrofit:${retrofitVersion}",
