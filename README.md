@@ -23,7 +23,7 @@ to presentation layer business objects (Entities in this case).
 because you need to have a business object with business rules (Domain layer in MVP architecture), that's why
 we need DataMappers which will convert the DTO to BO.
 
-## Architecture
+## Tools
 * Event-Driven architecture with Otto
 * Dependncy injection with Dagger2
 
