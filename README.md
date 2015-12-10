@@ -25,7 +25,7 @@ we need DataMappers which will convert the DTO to BO.
 
 ## Tools
 * Event-Driven programming with Otto
-* Dependncy injection with Dagger2
+* Dependency injection with Dagger2
 
 ## Libraries
 * [Retrofit 1.9.0](http://square.github.io/retrofit/)
