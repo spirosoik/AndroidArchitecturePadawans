@@ -29,13 +29,19 @@
       </header>
       <section>
         <h1>
-<a id="clean-android-architecture-for-padawans" class="anchor" href="#clean-android-architecture-for-padawans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clean Android Architecture for Padawans</h1>
+<a id="clean-android-architecture-for-padawans" class="anchor" href="#clean-android-architecture-for-padawans" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Clean Android Architecture for Padawans</h1>
 
 <p>This repository shows how to separate layers of an application for newcomers in Android world with a simple application based on Foursquare API. 
 After this you will become a Padawan and this means that you have made a great progress to become a JEDI.</p>
 
+<p><img src="https://s3.amazonaws.com/soikonomakis/Padawan.jpg" alt=""></p>
+
 <p>If you understood this simple architecture you will be able to go further in Android World and more complex and cleaner architecutes
 like MVP, MVVP.</p>
+
+<p>The architecture is simple. Check below:</p>
+
+<p><img src="https://s3.amazonaws.com/soikonomakis/app_architecture.png" alt=""></p>
 
 <p>A quick description is that I separated the presentation layer and the data layer. 
 The data layer is a simple java library and not an android library although it can be an Android Library also. 
@@ -46,19 +52,19 @@ The data layer can access a Database or a REST API and it will return back
 to presentation layer business objects (Entities in this case). </p>
 
 <p><strong>Important note:</strong> You must not send back to the presentation layer the Data Object (DTO of retrofit) 
-because you need to have a business object with business rules (Domain layer in MVP architecture), that's why
+because you need to have a business object with business rules (Domain layer in Clean architecture), that's why
 we need DataMappers which will convert the DTO to BO.</p>
 
 <h2>
-<a id="tools" class="anchor" href="#tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tools</h2>
+<a id="tools" class="anchor" href="#tools" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tools</h2>
 
 <ul>
-<li>Event-Driven architecture with Otto</li>
-<li>Dependncy injection with Dagger2</li>
+<li>Event-Driven programming with Otto</li>
+<li>Dependency injection with Dagger2</li>
 </ul>
 
 <h2>
-<a id="libraries" class="anchor" href="#libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Libraries</h2>
+<a id="libraries" class="anchor" href="#libraries" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Libraries</h2>
 
 <ul>
 <li><a href="http://square.github.io/retrofit/">Retrofit 1.9.0</a></li>
@@ -70,7 +76,7 @@ we need DataMappers which will convert the DTO to BO.</p>
 </ul>
 
 <h2>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
 
 <pre><code>Copyright 2015 Economakis Spyridon
 
